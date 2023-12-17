@@ -19,15 +19,15 @@ def showdbsqlite():
     sqlCon.tabulate(headers=["ID", "Name", "Age"], tablefmt="grid", tabular_data=sqlCon.data)
 
 
-@click.group()
-def main():
-    hello()
-
-
 @click.command("migrateDB")
 def migratedb():
     mongoMigrate.migrate_data()
     echo("Data has been migrated.")
+
+
+@click.group()
+def main():
+    pass
 
 
 main.add_command(hello)
